@@ -17,7 +17,7 @@ namespace Likvido.Web.Api.Controllers
 
         public CompanyController()
         {
-            
+
         }
 
         // GET api/company
@@ -25,27 +25,8 @@ namespace Likvido.Web.Api.Controllers
         public IEnumerable<Company> Get(string query)
         {
             var url = Constants.MicroservicePath.CompanyEndpoint;
-
-            using (var client = new WebClient())
-            {
-                var data = client.DownloadString(url + "?query=" + query);
-                var dtos = JsonConvert.DeserializeObject<List<CompanyDTO>>(data);
-
-                List<Company> companies = new List<Company>();
-                foreach (var companyDto in dtos)
-                {
-                    companies.Add(new Company()
-                    {
-                        Address = companyDto.Address,
-                        City = companyDto.City,
-                        CompanyRegistrationId = companyDto.VAT,
-                        Name = companyDto.OfficialName,
-                        Zipcode = companyDto.Zipcode
-                    });
-                }
-
-                return companies;
-            }
+            var path = url + "?query=" + query;
+            return BaseHelper<Company>.DownloadAndParseList<CompanyDTO>(path);
         }
 
     }
