@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using Likvido.Web.Api.Model.Company;
 using Newtonsoft.Json;
@@ -29,6 +30,7 @@ namespace Likvido.Web.Api.Utils
 
             using (var client = new WebClient())
             {
+                client.Encoding = Encoding.UTF8;
                 var data = client.DownloadString(url);
                 var dtos = JsonConvert.DeserializeObject<List<T>>(data);
                 
@@ -55,6 +57,7 @@ namespace Likvido.Web.Api.Utils
 
             using (var client = new WebClient())
             {
+                client.Encoding = Encoding.UTF8;
                 var data = client.DownloadString(url);
                 var dtos = JsonConvert.DeserializeObject<T>(data);
 
