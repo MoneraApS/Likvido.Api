@@ -12,6 +12,9 @@ namespace Likvido.Web.Api.Model.Company
         public string Address { get; set; }
         public string Zipcode { get; set; }
         public string City { get; set; }
+        public string Country  { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
 
         public Company(CompanyDTO companyDto)
         {
@@ -20,6 +23,9 @@ namespace Likvido.Web.Api.Model.Company
             CompanyRegistrationId = companyDto.VAT;
             Name = companyDto.OfficialName;
             Zipcode = companyDto.Zipcode;
+            Country = "Danmark";
+            Email = companyDto.Email;
+            Phone = companyDto.Phone;
         }
     }
 }
