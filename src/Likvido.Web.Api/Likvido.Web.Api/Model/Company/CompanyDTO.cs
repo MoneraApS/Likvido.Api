@@ -22,7 +22,7 @@ namespace Likvido.Web.Api.Model.Company
         public string Startdate { get; set; }
         public string Enddate { get; set; }
         public string Employees { get; set; }
-
+        public CompanyType Type { get; set; }
         public int IndustryCode { get; set; }
         public string IndustryCodeDescription { get; set; }
         public int? IndustrySecondaryCode { get; set; }

@@ -15,6 +15,7 @@ namespace Likvido.Web.Api.Model.Company
         public string Country  { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public CompanyType Type { get; set; }
 
         public Company(CompanyDTO companyDto)
         {
@@ -26,6 +27,7 @@ namespace Likvido.Web.Api.Model.Company
             Country = "Danmark";
             Email = companyDto.Email;
             Phone = companyDto.Phone;
+            Type = companyDto.Type;
         }
     }
 }
